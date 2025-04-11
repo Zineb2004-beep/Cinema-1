@@ -66,7 +66,7 @@ Hibernate permet de générer automatiquement les tables à partir des entités 
 
 Insertion de films, séances et réservations via les entités Hibernate (extrait du fichier `Test.java`) :
 
-![Insertion des données](images/insertion 1.png)
+![Insertion des données](images/insertion%201.png)
 
 ---
 
