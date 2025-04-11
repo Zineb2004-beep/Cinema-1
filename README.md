@@ -45,7 +45,7 @@ Dans un contexte de digitalisation croissante, les cinémas ont besoin d’un sy
 
 📎 *Diagramme UML représentant les entités principales de l’application :*
 
-![Diagramme de classe](images/diagramme de classe Cinema.png)
+![Diagramme de classe](images/diagramme%20de%20classe%20Cinema.png)
 
 ---
 
@@ -55,9 +55,9 @@ Dans un contexte de digitalisation croissante, les cinémas ont besoin d’un sy
 
 Hibernate permet de générer automatiquement les tables à partir des entités Java :
 
-![Création de la base de données](images/creation 1.png)
-![Création de la base de données](images/creation 2.png)
-![Création de la base de données](images/creation 3.png)
+![Création de la base de données](images/creation%201.png)
+![Création de la base de données](images/creation%202.png)
+![Création de la base de données](images/creation%203.png)
 
 ---
 
@@ -72,8 +72,8 @@ Insertion de films, séances et réservations via les entités Hibernate (extrai
 
 ### 🔍 Le filtrage 
 
-![Filtrage](images/filtrage 1.png)
-![Filtrage](images/filtrage 2.png)
+![Filtrage](images/filtrage%201.png)
+![Filtrage](images/filtrage%202.png)
 
 ---
 
