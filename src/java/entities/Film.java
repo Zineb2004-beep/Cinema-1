@@ -9,9 +9,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.NamedNativeQuery;
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
 
 @Entity
 @Table(name = "films")
+@NamedQueries({
+    @NamedQuery(name = "findByTitre", query = "from Film where titre =:titre"),
+    @NamedQuery(name  ="findByGenre", query = "from Film where genre =:genre"),
+    @NamedQuery(name = "findByRealisateur", query = "from Film where realisateur =:realisateur")
+})
+@NamedNativeQuery(name="findSeances", query = "SELECT s.* FROM seances s inner JOIN films f on s.film_id = f.id where f.id=:id", resultClass = Seance.class)
+
 public class Film {
 
     @Id

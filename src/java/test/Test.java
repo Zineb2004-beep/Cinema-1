@@ -58,7 +58,19 @@ public class Test {
 
         // Requêtes pour récupérer les films, séances, et réservations
         Session session = HibernateUtil.getSessionFactory().openSession();
+        
+        for(Seance s : filmDao.findSeances(filmDao.findById(1)))
+            System.out.println(s.getDate());
+        
+        for(Film f : filmDao.findByTitre(filmDao.findById(1)))
+            System.out.println(f.getGenre().getNom());
+    
+        for(Film f : filmDao.findByGenre(filmDao.findById(1)))
+            System.out.println(f.getTitre());
 
+        for(Film f : filmDao.findByRealisateur(filmDao.findById(1)))
+            System.out.println(f.getRealisateur());
+       /* 
         String genreCible = "Action";
         String hql1 = "SELECT DISTINCT f FROM Film f WHERE f.genre.nom = :genre";
         Query query1 = session.createQuery(hql1);
@@ -88,6 +100,7 @@ public class Test {
         for (ReservationCinema r : reservations) {
             System.out.println("- Film: " + r.getSeance().getFilm().getTitre() + ", Place: " + r.getSeance().getPlace());
         }
+        */
 
         session.close();
         HibernateUtil.getSessionFactory().close();
