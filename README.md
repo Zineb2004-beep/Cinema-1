@@ -45,7 +45,7 @@ Dans un contexte de digitalisation croissante, les cinémas ont besoin d’un sy
 
 📎 *Diagramme UML représentant les entités principales de l’application :*
 
-![Diagramme de classe](images/diagramme%20de%20classe%20Cinema.png)
+![Diagramme de classe](images/diagrammeDeClasseCorrigé.png)
 
 ---
 
