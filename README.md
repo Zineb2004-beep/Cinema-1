@@ -66,7 +66,7 @@ Hibernate permet de générer automatiquement les tables à partir des entités 
 Voici le MCD représentant la structure logique de la base de données du système de gestion de cinéma.  
 Il a été généré automatiquement à partir des entités Hibernate.
 
-![Modèle conceptuel](images/schéma%20base%20de%20données%20.png)
+![Modèle conceptuel](images/mcd.png)
 
 ---
 
