@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/Controllers/LoginController.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/Controllers/SeanceController.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/Controllers/UserController.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/entities/Client.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/dao/UserDao.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/web/index.html</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/web/login.jsp</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/config/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/services/SeanceService.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/entities/ReservationCinema.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/entities/Admin.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/services/UserService.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/Controllers/FilmController.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/entities/User.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/test/Test.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/dao/FilmDao.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/web/film.jsp</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/web/user.jsp</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/services/FilmService.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/entities/ReservationCinemaPK.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/dao/SeanceDao.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/entities/Genre.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/entities/Seance.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/services/IService.java</file>
+            <file>file:/C:/Users/User/OneDrive/Documents/NetBeansProjects/Cinema/src/java/entities/Film.java</file>
+        </group>
+    </open-files>
+</project-private>

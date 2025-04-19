@@ -10,9 +10,24 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.annotations.NamedNativeQuery;
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
 
 @Entity
 @Table(name = "seances")
+@NamedQueries({
+    @NamedQuery(name = "Seance.findByDate", query = "FROM Seance s WHERE s.date = :date"),
+    @NamedQuery(name = "Seance.findByHeure", query = "FROM Seance s WHERE s.heure = :heure"),
+    @NamedQuery(name = "Seance.findBySalle", query = "FROM Seance s WHERE s.salle = :salle"),
+    @NamedQuery(name = "Seance.findByFilm", query = "FROM Seance s WHERE s.film.id = :filmId")
+})
+
+@NamedNativeQuery(
+        name = "Seance.findByFilmAndDate",
+        query = "SELECT * FROM seances WHERE film_id = :filmId AND date = :date",
+        resultClass = Seance.class
+)
 public class Seance {
 
     @Id
@@ -83,6 +98,5 @@ public class Seance {
     public void setFilm(Film film) {
         this.film = film;
     }
-    
-    
+
 }

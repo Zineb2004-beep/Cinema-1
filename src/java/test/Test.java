@@ -1,10 +1,12 @@
 package test;
 
+import dao.AdminDao;
 import dao.ClientDao;
 import dao.FilmDao;
 import dao.GenreDao;
 import dao.ReservationCinemaDao;
 import dao.SeanceDao;
+import entities.Admin;
 import entities.Client;
 import entities.Film;
 import entities.Genre;
@@ -22,6 +24,7 @@ public class Test {
 
     public static void main(String[] args) {
         ClientDao clientDao = new ClientDao();
+        AdminDao adminDao = new AdminDao();
         GenreDao genreDao = new GenreDao();
         FilmDao filmDao = new FilmDao();
         SeanceDao seanceDao = new SeanceDao();
@@ -31,6 +34,8 @@ public class Test {
         Client client = new Client("E141516", "BAIDAS", "Zineb", "zineb@gmail.com", "zineb123");
         clientDao.create(client);
 
+        Admin admin = new Admin ("12345","Essayouti","Atiqa","atiqa@gmail.com","atiqa123");
+        adminDao.create(admin);
         // Création d'un genre
         Genre genre = new Genre("Action", "Des scènes explosives, des poursuites et des combats intenses qui font monter l’adrénaline.");
         genreDao.create(genre);

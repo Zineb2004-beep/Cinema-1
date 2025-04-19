@@ -2,7 +2,6 @@ package dao;
 
 import entities.Film;
 import entities.Seance;
-import java.util.Date;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

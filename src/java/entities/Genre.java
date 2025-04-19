@@ -7,9 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import org.hibernate.annotations.NamedQuery;
 
 @Entity
 @Table(name = "genres")
+@NamedQuery(name = "Genre.findById", query = "SELECT g FROM Genre g WHERE g.id = :id")
 public class Genre {
 
     @Id

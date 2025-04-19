@@ -7,9 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import org.hibernate.annotations.NamedQuery;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
+@NamedQuery(name  ="findByEmail", query = "from User where email =:email")
 public class User {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
