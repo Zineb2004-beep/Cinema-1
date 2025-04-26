@@ -8,12 +8,21 @@ package entities;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
 
 /**
  *
  * @author zineb
  */
+
 @Entity
+
+@NamedQueries({
+    @NamedQuery(name = "findByName", query = "FROM Client c WHERE c.name LIKE :name"),
+    @NamedQuery(name = "findByEmail", query = "FROM Client WHERE email = :email")
+})
+
 public class Client extends User {
 
     private String cin;
@@ -29,6 +38,7 @@ public class Client extends User {
         this.cin = cin;
     }
 
+    
 
     public String getCin() {
         return cin;

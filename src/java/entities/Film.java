@@ -17,10 +17,10 @@ import org.hibernate.annotations.NamedQuery;
 @Table(name = "films")
 @NamedQueries({
     @NamedQuery(name = "findByTitre", query = "from Film where titre =:titre"),
-    @NamedQuery(name  ="findByGenre", query = "from Film where genre =:genre"),
+    @NamedQuery(name = "findByGenre", query = "from Film where genre =:genre"),
     @NamedQuery(name = "findByRealisateur", query = "from Film where realisateur =:realisateur")
 })
-@NamedNativeQuery(name="findSeances", query = "SELECT s.* FROM seances s inner JOIN films f on s.film_id = f.id where f.id=:id", resultClass = Seance.class)
+@NamedNativeQuery(name = "findSeances", query = "SELECT s.* FROM seances s inner JOIN films f on s.film_id = f.id where f.id=:id", resultClass = Seance.class)
 
 public class Film {
 
@@ -30,20 +30,25 @@ public class Film {
     private String titre;
     private String realisateur;
     private double duree;
+
     @ManyToOne
     @JoinColumn(name = "genreId")
     private Genre genre;
     @OneToMany(mappedBy = "film")
     private List<Seance> seances;
+    
+    private String image;  // Attribut pour stocker l'URL de l'image
 
     public Film() {
     }
 
-    public Film(String titre, String realisateur, double duree, Genre genre) {
+    public Film(String titre, String realisateur, double duree, Genre genre, String image) {
         this.titre = titre;
         this.realisateur = realisateur;
         this.duree = duree;
+
         this.genre = genre;
+        this.image = image;
     }
 
     public int getId() {
@@ -93,7 +98,13 @@ public class Film {
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
-    
-    
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String imageUrl) {
+        this.image = imageUrl;
+    }
 
 }

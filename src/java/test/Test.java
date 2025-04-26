@@ -41,7 +41,7 @@ public class Test {
         genreDao.create(genre);
 
         // Création d'un film
-        Film film = new Film("Mission: Impossible – Fallout", "Christopher McQuarrie", 147.00,genre);
+        /*Film film = new Film("Mission: Impossible – Fallout", "Christopher McQuarrie", 147.00,genre);
         filmDao.create(film);
 
         // Création d'une séance
@@ -61,7 +61,7 @@ public class Test {
 
         System.out.println("Réservation enregistrée avec succès!");
 
-        // Requêtes pour récupérer les films, séances, et réservations
+        */// Requêtes pour récupérer les films, séances, et réservations
         Session session = HibernateUtil.getSessionFactory().openSession();
         
         for(Seance s : filmDao.findSeances(filmDao.findById(1)))

@@ -10,9 +10,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
 
 @Entity
 @Table (name = "reservationsCinema")
+@NamedQueries({
+    @NamedQuery(
+        name = "findByClientAndSeance", 
+        query = "FROM ReservationCinema rc WHERE rc.client.id = :clientId AND rc.seance.id = :seanceId"
+    )
+})
 public class ReservationCinema {
 
     @EmbeddedId
