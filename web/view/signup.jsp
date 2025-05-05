@@ -1,10 +1,7 @@
-<%-- 
-    Document   : user
-    Created on : 19 avr. 2025, 01:18:46
-    Author     : User
---%>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -120,7 +117,7 @@
     </head>
     <body>
         <div class="signup-container">
-            <h2>🎬 Inscription Client</h2>
+            <h2>🎬 Inscription</h2>
 
             <% if (request.getAttribute("error") != null) {%>
             <div class="error-message"><%= request.getAttribute("error")%></div>

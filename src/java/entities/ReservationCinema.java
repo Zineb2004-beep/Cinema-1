@@ -1,4 +1,3 @@
-
 package entities;
 
 import javax.persistence.Entity;
@@ -14,12 +13,22 @@ import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
 
 @Entity
-@Table (name = "reservationsCinema")
+@Table(name = "reservationsCinema")
 @NamedQueries({
     @NamedQuery(
-        name = "findByClientAndSeance", 
-        query = "FROM ReservationCinema rc WHERE rc.client.id = :clientId AND rc.seance.id = :seanceId"
+            name = "findByClientAndSeance",
+            query = "FROM ReservationCinema rc WHERE rc.client.id = :clientId AND rc.seance.id = :seanceId"
+    ),
+    @NamedQuery(
+            name = "ReservationCinema.countByGenre",
+            query = "SELECT g.nom, COUNT(r) "
+            + "FROM ReservationCinema r "
+            + "LEFT JOIN r.seance s "
+            + "LEFT JOIN s.film f "
+            + "LEFT JOIN f.genre g "
+            + "GROUP BY g.nom"
     )
+
 })
 public class ReservationCinema {
 
@@ -80,6 +89,13 @@ public class ReservationCinema {
         this.seance = seance;
     }
 
-   
+    @Override
+    public String toString() {
+        return "Reservation{"
+                + "DateReservation=" + dateReservation
+                + ", client=" + client.getNom() + " " + client.getPrenom()
+                + ", seance=" + seance.getFilm().getTitre()
+                + '}';
+    }
 
 }

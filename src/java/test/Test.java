@@ -18,6 +18,7 @@ import java.util.Date;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import services.FilmService;
 import util.HibernateUtil;
 
 public class Test {
@@ -29,6 +30,7 @@ public class Test {
         FilmDao filmDao = new FilmDao();
         SeanceDao seanceDao = new SeanceDao();
         ReservationCinemaDao reservationDao = new ReservationCinemaDao();
+        FilmService fs = new FilmService();
 
         // Création d'un client
         Client client = new Client("E141516", "BAIDAS", "Zineb", "zineb@gmail.com", "zineb123");
@@ -40,6 +42,11 @@ public class Test {
         Genre genre = new Genre("Action", "Des scènes explosives, des poursuites et des combats intenses qui font monter l’adrénaline.");
         genreDao.create(genre);
 
+        
+        List<Film> films = fs.findAll();
+                for(Film f : fs.findAll())
+                    System.out.println(f.getTitre());
+        
         // Création d'un film
         /*Film film = new Film("Mission: Impossible – Fallout", "Christopher McQuarrie", 147.00,genre);
         filmDao.create(film);

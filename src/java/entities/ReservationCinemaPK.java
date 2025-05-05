@@ -8,11 +8,13 @@ package entities;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 
 /**
  *
  * @author User
  */
+@Embeddable
 public class ReservationCinemaPK  implements Serializable {
 
     @Column(name = "clientId")
@@ -57,5 +59,6 @@ public class ReservationCinemaPK  implements Serializable {
         this.dateReservation = dateReservation;
     }
 
+    
     
 }

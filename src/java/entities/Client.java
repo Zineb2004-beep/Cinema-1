@@ -19,8 +19,8 @@ import org.hibernate.annotations.NamedQuery;
 @Entity
 
 @NamedQueries({
-    @NamedQuery(name = "findByName", query = "FROM Client c WHERE c.name LIKE :name"),
-    @NamedQuery(name = "findByEmail", query = "FROM Client WHERE email = :email")
+    @NamedQuery(name = "findByName", query = "FROM Client c WHERE c.nom LIKE :name"),
+    @NamedQuery(name = "Client.findByEmail", query = "FROM Client c WHERE c.email = :email")
 })
 
 public class Client extends User {

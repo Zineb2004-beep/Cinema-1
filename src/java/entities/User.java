@@ -1,6 +1,7 @@
 
 package entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,13 +12,14 @@ import org.hibernate.annotations.NamedQuery;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@NamedQuery(name  ="findByEmail", query = "from User where email =:email")
+@NamedQuery(name  ="User.findByEmail", query = "FROM User u WHERE u.email = :email")
 public class User {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     protected int id;
     protected String nom;
     protected String prenom;
+    @Column(unique = true)
     protected String email;
     protected String motDePasse;
 

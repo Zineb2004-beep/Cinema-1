@@ -5,12 +5,15 @@
  */
 package services;
 
+import dao.ClientDao;
 import dao.ReservationCinemaDao;
+import dao.SeanceDao;
 import entities.ReservationCinema;
 import entities.Client;
 import entities.Seance;
 import entities.ReservationCinemaPK;
 import java.util.List;
+import mapper.ReservationGenreStat;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import util.HibernateUtil;
@@ -31,6 +34,26 @@ public class ReservationCinemaService implements IService<ReservationCinema> {
     @Override
     public boolean create(ReservationCinema reservationCinema) {
         return reservationCinemaDAO.create(reservationCinema);
+    }
+
+    public boolean create(int clientId, int seanceId) {
+        ClientDao clientDao = new ClientDao();
+        Client client = clientDao.findById(clientId);
+
+        SeanceDao seanceDao = new SeanceDao();
+        Seance seance = seanceDao.findById(seanceId);
+
+        if (client != null && seance != null) {
+            // Créer une nouvelle instance de ReservationCinema
+            ReservationCinema reservationCinema = new ReservationCinema();
+            reservationCinema.setClient(client);
+            reservationCinema.setSeance(seance);
+
+            // Appeler la méthode create() du DAO pour persister l'objet
+            return reservationCinemaDAO.create(reservationCinema);
+        }
+
+        return false;
     }
 
     @Override
@@ -91,7 +114,6 @@ public class ReservationCinemaService implements IService<ReservationCinema> {
         return reservationCinema;
     }
 
-    // Récupérer toutes les réservations
     public List<ReservationCinema> findAllReservations() {
         Session session = null;
         Transaction tx = null;
@@ -100,9 +122,12 @@ public class ReservationCinemaService implements IService<ReservationCinema> {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
 
-            String hql = "FROM ReservationCinema";
+            String hql = "SELECT r FROM ReservationCinema r "
+                    + "JOIN FETCH r.client "
+                    + "JOIN FETCH r.seance s "
+                    + "JOIN FETCH s.film";
             Query query = session.createQuery(hql);
-            reservations = query.list(); // Récupérer la liste de toutes les réservations
+            reservations = query.list();
 
             tx.commit();
         } catch (Exception e) {
@@ -123,9 +148,9 @@ public class ReservationCinemaService implements IService<ReservationCinema> {
     public ReservationCinema findByClientAndSeance(int clientId, int seanceId) {
         return reservationCinemaDao.findByClientAndSeance(clientId, seanceId);
     }
-
-    public List<ReservationCinema> findByClient(int clientId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public List<ReservationGenreStat> getStatsByGenre() {
+        return reservationCinemaDAO.getStatsByGenre();
     }
 
 }

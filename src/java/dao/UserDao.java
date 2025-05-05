@@ -20,7 +20,7 @@ public class UserDao extends AbstractDao<User> {
         try {
             session = HibernateUtil.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            users = session.getNamedQuery("findByEmail").setParameter("email", email).list();
+            users = session.getNamedQuery("User.findByEmail").setParameter("email", email).list();
             tx.commit();
         } catch (HibernateException ex) {
             if (tx != null) {

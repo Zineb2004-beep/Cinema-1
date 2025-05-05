@@ -19,7 +19,7 @@ public class ClientDao extends AbstractDao<Client> {
         Transaction tx = null;
         try  {
             Client client;
-            client = (Client) session.getNamedQuery("findByEmail")
+            client = (Client) session.getNamedQuery("Client.findByEmail")
                     .setParameter("email", email)
                     .uniqueResult();
             return client;

@@ -53,8 +53,12 @@ public class UserService implements IService<User> {
         List<User> users = ud.findByEmail(email);
         if (users != null && !users.isEmpty()) {
             User user = users.get(0);
-            if (user instanceof Admin && user.getMotDePasse().equals(motDePasse)) {
-                return (Admin) user;
+
+            if (user instanceof Admin) {
+                Admin admin = (Admin) user;
+                if (admin.getMotDePasse().equals(motDePasse)) {
+                    return admin;
+                }
             }
         }
         return null;

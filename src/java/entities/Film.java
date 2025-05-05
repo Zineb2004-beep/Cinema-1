@@ -37,18 +37,15 @@ public class Film {
     @OneToMany(mappedBy = "film")
     private List<Seance> seances;
     
-    private String image;  // Attribut pour stocker l'URL de l'image
-
     public Film() {
     }
 
-    public Film(String titre, String realisateur, double duree, Genre genre, String image) {
+    public Film(String titre, String realisateur, double duree, Genre genre) {
         this.titre = titre;
         this.realisateur = realisateur;
         this.duree = duree;
 
         this.genre = genre;
-        this.image = image;
     }
 
     public int getId() {
@@ -99,12 +96,6 @@ public class Film {
         this.genre = genre;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String imageUrl) {
-        this.image = imageUrl;
-    }
+   
 
 }

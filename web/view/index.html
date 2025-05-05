@@ -1,79 +1,74 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Cinéma - Accueil</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1c1c1c;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cinéma Luxe</title>
+        <link rel="stylesheet" href="assets/style.css"> <!-- Le fichier CSS global -->
+    </head>
+    <body>
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <h1>Cinématy</h1>
+            </div>
+            <nav>
+                <a href="view/login.jsp">Connexion</a>
+            </nav>
+            <nav>
+                <a href="view/signup.jsp">Inscription</a>
+            </nav>
+        </header>
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+        <!-- Main content -->
+        <main class="hero-section">
+            <h2>Bienvenue dans votre cinéma haut de gamme</h2>
+            <p>Réservez vos places, découvrez les dernières sorties, et vivez une expérience unique.</p>
+        </main>
 
-        h1 {
-            font-size: 3em;
-            color: #f39c12;
-        }
+        <!-- Films populaires (affichage dynamique plus tard) -->
+        <section class="popular-films">
+            <h3>Films Populaires</h3>
+            <div class="films-container">
+                <div class="film-card">
+                    <img src="assets/film1.webp" alt="Inception">
+                    <div class="film-info">
+                        <h4>Inception</h4>
+                        <p>Christopher Nolan</p>
+                        <a href="#" class="btn-detail">Voir les détails</a>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <img src="assets/film2.webp" alt="The Dark Knight">
+                    <div class="film-info">
+                        <h4>The Dark Knight</h4>
+                        <p>Christopher Nolan</p>
+                        <a href="#" class="btn-detail">Voir les détails</a>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <img src="assets/film3.webp" alt="Interstellar">
+                    <div class="film-info">
+                        <h4>Interstellar</h4>
+                        <p>Christopher Nolan</p>
+                        <a href="#" class="btn-detail">Voir les détails</a>
+                    </div>
+                </div>
+                <div class="film-card">
+                    <img src="assets/film4.webp" alt="The Matrix">
+                    <div class="film-info">
+                        <h4>The Matrix</h4>
+                        <p>Wachowski Brothers</p>
+                        <a href="#" class="btn-detail">Voir les détails</a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        p {
-            font-size: 1.2em;
-            max-width: 600px;
-            text-align: center;
-            color: #ccc;
-        }
 
-        a.button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 24px;
-            background-color: #e74c3c;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        a.button:hover {
-            background-color: #c0392b;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.9em;
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Bienvenue au Cinéma</h1>
-        <p>Découvrez et gérez facilement la programmation des films, les séances, et les utilisateurs avec notre application web dédiée aux administrateurs.</p>
-        <a href="view/login.jsp" class="button">Connexion Admin</a>
-    </header>
-    <footer>
-        &copy; 2025 Projet de gestion de cinéma - Tous droits réservés.
-    </footer>
-</body>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Cinéma Luxe - Tous droits réservés</p>
+        </footer>
+    </body>
 </html>
-

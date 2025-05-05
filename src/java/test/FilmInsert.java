@@ -43,16 +43,16 @@ public class FilmInsert {
             session.save(history);
 
             // Films à insérer avec l'URL de l'image
-            Film film1 = new Film("Inception", "Christopher Nolan", 148, sciFi, "assets/film1.webp");
-            Film film2 = new Film("The Dark Knight", "Christopher Nolan", 152, action, "assets/film2.webp");
-            Film film3 = new Film("Interstellar", "Christopher Nolan", 169, sciFi, "assets/film3.webp");
-            Film film4 = new Film("The Matrix", "Wachowski Brothers", 136, action, "assets/film4.webp");
-            Film film5 = new Film("Avatar", "James Cameron", 162, sciFi, "assets/film5.webp");
-            Film film6 = new Film("Titanic", "James Cameron", 195, romance, "assets/film6.webp");
-            Film film7 = new Film("The Shawshank Redemption", "Frank Darabont", 142, drama, "assets/film7.webp");
-            Film film8 = new Film("Forrest Gump", "Robert Zemeckis", 142, drama, "assets/film8.webp");
-            Film film9 = new Film("Gladiator", "Ridley Scott", 155, action, "assets/film9.webp");
-            Film film10 = new Film("The Godfather", "Francis Ford Coppola", 175, crime, "assets/film10.webp");
+            Film film1 = new Film("Inception", "Christopher Nolan", 148, sciFi);
+            Film film2 = new Film("The Dark Knight", "Christopher Nolan", 152, action);
+            Film film3 = new Film("Interstellar", "Christopher Nolan", 169, sciFi);
+            Film film4 = new Film("The Matrix", "Wachowski Brothers", 136, action);
+            Film film5 = new Film("Avatar", "James Cameron", 162, sciFi);
+            Film film6 = new Film("Titanic", "James Cameron", 195, romance);
+            Film film7 = new Film("The Shawshank Redemption", "Frank Darabont", 142, drama);
+            Film film8 = new Film("Forrest Gump", "Robert Zemeckis", 142, drama);
+            Film film9 = new Film("Gladiator", "Ridley Scott", 155, action);
+            Film film10 = new Film("The Godfather", "Francis Ford Coppola", 175, crime);
 
             // Sauvegarde des films
             session.save(film1);

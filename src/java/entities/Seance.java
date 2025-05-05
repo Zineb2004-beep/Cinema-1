@@ -37,18 +37,18 @@ public class Seance {
     private Date date;
     private Time heure;
     private String salle;
-    private String place;
+    private int places;
     @ManyToOne
     private Film film;
 
     public Seance() {
     }
 
-    public Seance(Date date, Time heure, String salle, String place) {
+    public Seance(Date date, Time heure, String salle, int places) {
         this.date = date;
         this.heure = heure;
         this.salle = salle;
-        this.place = place;
+        this.places = places;
     }
 
     public int getId() {
@@ -83,12 +83,12 @@ public class Seance {
         this.salle = salle;
     }
 
-    public String getPlace() {
-        return place;
+    public int getPlaces() {
+        return places;
     }
 
-    public void setPlace(String place) {
-        this.place = place;
+    public void setPlaces(int places) {
+        this.places = places;
     }
 
     public Film getFilm() {

@@ -9,21 +9,24 @@ import entities.Client;
 import entities.ReservationCinema;
 import entities.ReservationCinemaPK;
 import entities.Seance;
+import java.util.ArrayList;
 import java.util.List;
+import mapper.ReservationGenreStat;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import util.HibernateUtil;
 
 /**
  *
  * @author User
  */
-public class ReservationCinemaDao  extends AbstractDao<ReservationCinema> {
+public class ReservationCinemaDao extends AbstractDao<ReservationCinema> {
 
     public ReservationCinemaDao() {
         super(ReservationCinema.class);
     }
-    
+
     // Trouver les réservations d'un client
     public List<ReservationCinema> findByClient(Client client) {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -58,16 +61,16 @@ public class ReservationCinemaDao  extends AbstractDao<ReservationCinema> {
         Query query = session.createQuery(hql);
         return query.list();
     }
-    
+
     public ReservationCinema findByClientAndSeance(int clientId, int seanceId) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         ReservationCinema reservationCinema = null;
         try {
             // Utilisation de getNamedQuery()
             reservationCinema = (ReservationCinema) session.getNamedQuery("findByClientAndSeance")
-                                       .setParameter("clientId", clientId)
-                                       .setParameter("seanceId", seanceId)
-                                       .uniqueResult();
+                    .setParameter("clientId", clientId)
+                    .setParameter("seanceId", seanceId)
+                    .uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -76,5 +79,22 @@ public class ReservationCinemaDao  extends AbstractDao<ReservationCinema> {
         return reservationCinema;
     }
 
-}
+    public List<ReservationGenreStat> getStatsByGenre() {
+        List<ReservationGenreStat> stats = new ArrayList<>();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            List<Object[]> results = session.getNamedQuery("ReservationCinema.countByGenre").list();
+            for (Object[] row : results) {
+                String genre = (String) row[0];
+                Long total = (Long) row[1];
+                stats.add(new ReservationGenreStat(genre, total));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return stats;
+    }
 
+}
