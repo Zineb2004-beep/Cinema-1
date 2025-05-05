@@ -85,3 +85,11 @@ Insertion de films, séances et réservations via les entités Hibernate (extrai
 
 ---
 
+## 🏗️ Architecture de projet 
+
+
+
+![Architecture de projet](images/architecture.png)
+
+---
+
