@@ -1,27 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entities;
 
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import java.util.Objects;
 
-/**
- *
- * @author User
- */
 @Embeddable
-public class ReservationCinemaPK  implements Serializable {
+public class ReservationCinemaPK implements Serializable {
 
     @Column(name = "clientId")
-    private int client;
+    private Long client;
 
     @Column(name = "seanceId")
-    private int seance;
+    private Long seance;
 
     @Column(name = "dateReservation")
     private Date dateReservation;
@@ -29,25 +21,25 @@ public class ReservationCinemaPK  implements Serializable {
     public ReservationCinemaPK() {
     }
 
-    public ReservationCinemaPK(int client, int seance, Date dateReservation) {
+    public ReservationCinemaPK(Long client, Long seance, Date dateReservation) {
         this.client = client;
         this.seance = seance;
         this.dateReservation = dateReservation;
     }
 
-    public int getClient() {
+    public Long getClient() {
         return client;
     }
 
-    public void setClient(int client) {
+    public void setClient(Long client) {
         this.client = client;
     }
 
-    public int getSeance() {
+    public Long getSeance() {
         return seance;
     }
 
-    public void setSeance(int seance) {
+    public void setSeance(Long seance) {
         this.seance = seance;
     }
 
@@ -59,6 +51,18 @@ public class ReservationCinemaPK  implements Serializable {
         this.dateReservation = dateReservation;
     }
 
-    
-    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ReservationCinemaPK that = (ReservationCinemaPK) o;
+        return client.equals(that.client) &&
+               seance.equals(that.seance) &&
+               dateReservation.equals(that.dateReservation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(client, seance, dateReservation);
+    }
 }

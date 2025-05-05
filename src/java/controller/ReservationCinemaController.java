@@ -1,5 +1,6 @@
 package controller;
 
+import dao.ClientDao;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -32,14 +33,14 @@ public class ReservationCinemaController extends HttpServlet {
             case "/mesReservations":
                 // Afficher les réservations spécifiques au client
                 HttpSession session = request.getSession(false);
-                Client client = (Client) session.getAttribute("user");
-
+                Client client = (Client) session.getAttribute("client"); // Correction ici
+                
                 if (client != null) {
                     List<ReservationCinema> reservations = reservationService.findByClient(client);
                     request.setAttribute("reservations", reservations);
                     request.getRequestDispatcher("/mesReservations.jsp").forward(request, response);
                 } else {
-                    response.sendRedirect("login.jsp");
+                    response.sendRedirect("login.jsp"); // Redirection si client non trouvé
                 }
                 break;
 
@@ -50,11 +51,6 @@ public class ReservationCinemaController extends HttpServlet {
                 if (admin != null) {
                     List<ReservationCinema> allReservations = reservationService.findAllReservations();
                     request.setAttribute("reservations", allReservations);
-                    System.out.println("Nombre total de réservations : " + allReservations.size());
-                    for (ReservationCinema r : allReservations) {
-                        System.out.println("Réservation : ID=" + r.getpK() + ", Client=" + r.getClient().getNom());
-                    }
-
                     request.getRequestDispatcher("/admin/adminReservations.jsp").forward(request, response);
                 } else {
                     response.sendRedirect("login.jsp");
@@ -66,14 +62,12 @@ public class ReservationCinemaController extends HttpServlet {
                 int reservationId = Integer.parseInt(request.getParameter("id"));
                 boolean isDeleted = reservationService.delete(reservationService.findById(reservationId));
 
-                // Affichage d'un message de succès ou d'erreur
                 if (isDeleted) {
                     request.setAttribute("message", "Réservation supprimée avec succès.");
                 } else {
                     request.setAttribute("message", "Erreur lors de la suppression de la réservation.");
                 }
 
-                // Recharger la liste des réservations
                 List<ReservationCinema> allReservationsAfterDelete = reservationService.findAllReservations();
                 request.setAttribute("reservations", allReservationsAfterDelete);
                 request.getRequestDispatcher("/admin/adminReservations.jsp").forward(request, response);
@@ -93,10 +87,10 @@ public class ReservationCinemaController extends HttpServlet {
             // Créer une réservation pour le client
             int idSeance = Integer.parseInt(request.getParameter("idSeance"));
             HttpSession session = request.getSession(false);
-            User user = (User) session.getAttribute("user");
+            Client client = (Client) session.getAttribute("client"); // Correction ici
 
-            if (user != null) {
-                reservationService.create(user.getId(), idSeance);
+            if (client != null) {
+                reservationService.create(client.getId(), idSeance); // Utilisation du client ici
                 response.sendRedirect("mesReservations");
             } else {
                 response.sendRedirect("login.jsp");
