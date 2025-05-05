@@ -95,9 +95,6 @@ Insertion de films, séances et réservations via les entités Hibernate (extrai
 
 ## 📼 Démonstration  
 
-
-
-![Video de démonstration ](images/demo.mp4)
-
+(https://github.com/user-attachments/assets/4ce900e0-e539-451a-a5d2-59bc63d98018)
 ---
 
